@@ -24,7 +24,7 @@ const password = "pass";
 
 const session = easyNetconf(server, port, username, password);
 
-console.log(session.perform('xget /'))
+console.log(session.perform('xget /'));
 
 ```
 
