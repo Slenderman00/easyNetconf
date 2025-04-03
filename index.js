@@ -32,4 +32,4 @@ class easyNetconf {
     }
 }
 
-export {easyNetconf}
+export { easyNetconf }
