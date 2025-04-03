@@ -1,0 +1,1 @@
+Minimal wrapper for node-yuma123
