@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "description": "Wrapper for the node-yuma123 netconf bindings",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "node index.js"
   },
   "author": "Joar Heimonen",
   "license": "ISC",
   "dependencies": {
-    "node-yuma123": "^0.1.5"
+    "fast-xml-parser": "^5.2.0",
+    "node-yuma123": "^0.2.1"
   }
 }
