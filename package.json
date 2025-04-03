@@ -4,9 +4,6 @@
   "description": "Wrapper for the node-yuma123 netconf bindings",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "run": "node index.js"
-  },
   "author": "Joar Heimonen",
   "license": "ISC",
   "dependencies": {
