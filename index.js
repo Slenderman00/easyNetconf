@@ -30,6 +30,12 @@ class easyNetconf {
 
         return jObject
     }
+
+    close() {
+        if(this.connected) {
+            yuma123.yangrpc.close(this.session)
+        }
+    }
 }
 
 export { easyNetconf }
