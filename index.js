@@ -1,5 +1,5 @@
 import { createRequire } from "module";
-import { yuma123, yangcli } from "node-yuma123";
+import { yuma123, yangcli, safeConnect } from "node-yuma123";
 const require = createRequire(import.meta.url);
 const { XMLParser } = require("fast-xml-parser");
 
@@ -12,7 +12,7 @@ class easyNetconf {
         this.connect(server, port, username, password, privatekey_path, publickey_path);
     }
 
-    connect(server, port, username, password, privatekey_path=null, publickey_path=null) {
+    safeConnect(server, port, username, password, privatekey_path=null, publickey_path=null) {
         if(!this.connected) {
             this.session = yuma123.yangrpc.connect(server, port, username, password, privatekey_path, publickey_path);
             this.connected = true;
