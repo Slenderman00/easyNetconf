@@ -12,9 +12,9 @@ class easyNetconf {
         this.connect(server, port, username, password, privatekey_path, publickey_path);
     }
 
-    safeConnect(server, port, username, password, privatekey_path=null, publickey_path=null) {
+    connect(server, port, username, password, privatekey_path=null, publickey_path=null) {
         if(!this.connected) {
-            this.session = yuma123.yangrpc.connect(server, port, username, password, privatekey_path, publickey_path);
+            this.session = safeConnect(server, port, username, password, privatekey_path, publickey_path);
             this.connected = true;
         }
     }
