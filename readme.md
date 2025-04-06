@@ -31,7 +31,8 @@ console.log(session.perform('xget /'));
 
 ## TODO
 
-- [ ]  Connection watchdog
+- [ ] Connection watchdog
+- [ ] Non blocking calls
 
 
 ## Authors
