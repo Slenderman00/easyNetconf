@@ -7,11 +7,13 @@ const { XMLParser } = require("fast-xml-parser");
 
 
 class easyNetconf {
-    constructor(server, port, username, password, privatekey_path=null, publickey_path=null) {
+    constructor(server=null, port=null, username=null, password=null, privatekey_path=null, publickey_path=null) {
         this.connected = false;
         this.session = null;
         this.parser = new XMLParser();
-        this.connect(server, port, username, password, privatekey_path, publickey_path);
+        if(server != null && port != null) {
+            this.connect(server, port, username, password, privatekey_path, publickey_path);
+        }
     }
 
     connect(server, port, username, password, privatekey_path=null, publickey_path=null, timeout=30) {
