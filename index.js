@@ -25,12 +25,14 @@ class easyNetconf {
 
     async_connect(server, port, username, password, privatekey_path=null, publickey_path=null, timeout=30) {
         return new Promise((resolve, reject) => {
-            try {
-                let connection = this.connect(server, port, username, password, privatekey_path=null, publickey_path=null, timeout);
-                resolve(connection);
-            } catch (error) {
-                reject(error);
-            }
+            setTimeout(() => {
+                try {
+                    let connection = this.connect(server, port, username, password, privatekey_path=null, publickey_path=null, timeout);
+                    resolve(connection);
+                } catch (error) {
+                    reject(error);
+                }
+            }, 0);
         });
     }
 
