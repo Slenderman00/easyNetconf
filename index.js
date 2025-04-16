@@ -28,6 +28,7 @@ class easyNetconf {
             setTimeout(() => {
                 try {
                     let connection = this.connect(server, port, username, password, privatekey_path=null, publickey_path=null, timeout);
+                    this.session = connection;
                     resolve(connection);
                 } catch (error) {
                     reject(error);
