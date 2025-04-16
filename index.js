@@ -27,8 +27,11 @@ class easyNetconf {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 try {
-                    this.session = safeConnect(server, port, username, password, privatekey_path=null, publickey_path=null, timeout);
-                    resolve(this.session);
+                    if(!this.connected) {
+                        this.session = safeConnect(server, port, username, password, privatekey_path, publickey_path, `--timeout=${timeout}`);
+                        this.connected = true;
+                        resolve(this.session);
+                    }
                 } catch (error) {
                     reject(error);
                 }
