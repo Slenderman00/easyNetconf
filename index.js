@@ -1,5 +1,5 @@
 import { createRequire } from "module";
-import { yuma123, yangcli } from "node-yuma123";
+import { yuma123, yangcli, getErrorMessage } from "node-yuma123";
 const require = createRequire(import.meta.url);
 const { XMLParser } = require("fast-xml-parser");
 
@@ -30,7 +30,7 @@ class easyNetconf {
                     resolve(this.session);
                 }).catch((e) => {
                     this.connected = false;
-                    reject(e.code);
+                    reject(getErrorMessage(e.code));
                 })
             }
         });
