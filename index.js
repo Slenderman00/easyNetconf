@@ -29,6 +29,7 @@ class easyNetconf {
                     this.connected = true;
                     resolve(this.session);
                 }).catch((e) => {
+                    this.connected = false;
                     reject(e.code);
                 })
             }
@@ -50,6 +51,7 @@ class easyNetconf {
     close() {
         if(this.connected) {
             yuma123.yangrpc.close(this.session)
+            this.connected = false;
         }
     }
 }
