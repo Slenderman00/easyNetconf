@@ -29,7 +29,7 @@ class easyNetconf {
                     this.connected = true;
                     resolve(this.session);
                 }).catch((e) => {
-                    reject(error);
+                    reject(e.code);
                 })
             }
         });
