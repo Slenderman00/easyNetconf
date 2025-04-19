@@ -1,7 +1,5 @@
-import { rejects } from "assert";
 import { createRequire } from "module";
-import { yuma123, yangcli, safeConnect } from "node-yuma123";
-import { resolve } from "path";
+import { yuma123, yangcli } from "node-yuma123";
 const require = createRequire(import.meta.url);
 const { XMLParser } = require("fast-xml-parser");
 
@@ -25,17 +23,15 @@ class easyNetconf {
 
     async_connect(server, port, username, password, privatekey_path=null, publickey_path=null, timeout=30) {
         return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                try {
-                    if(!this.connected) {
-                        this.session = safeConnect(server, port, username, password, privatekey_path, publickey_path, `--timeout=${timeout}`);
-                        this.connected = true;
-                        resolve(this.session);
-                    }
-                } catch (error) {
+            if(!this.connected) {
+                yuma123.yangrpc.async_connect(server, port, username, password, privatekey_path, publickey_path, `--timeout=${timeout}`).then((connection) => {
+                    this.session = connection;
+                    this.connected = true;
+                    resolve(this.session);
+                }).catch((e) => {
                     reject(error);
-                }
-            }, 0);
+                })
+            }
         });
     }
 
