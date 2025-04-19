@@ -1,6 +1,6 @@
 {
   "name": "easynetconf",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Wrapper for the node-yuma123 netconf bindings",
   "main": "index.js",
   "type": "module",
