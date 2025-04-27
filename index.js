@@ -36,12 +36,16 @@ class easyNetconf {
         });
     }
 
-    perform(command) {
+    perform(command, parse=true) {
         if(!this.connected) {
             return;
         }
 
         let res = yangcli(this.session, command);
+
+        if(!parse) {
+            return res;
+        }
 
         let jObject = this.parser.parse(res)
 
